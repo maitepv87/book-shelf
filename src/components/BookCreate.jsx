@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { useBookContext } from "../context/BookContext";
+import { createBook } from "../context/actions";
 
-export const BookCreate = ({ onCreate }) => {
+export const BookCreate = () => {
+  const { state, dispatch } = useBookContext();
+
   const [title, setTitle] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (title.trim()) {
-      onCreate(title);
+      createBook(dispatch, title);
       setTitle("");
     }
   };

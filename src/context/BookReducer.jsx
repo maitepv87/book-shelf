@@ -11,14 +11,35 @@ const initialState = {
 // Reducer to handle async lifecycle: start, success, error, reset
 const reducer = (state, action) => {
   switch (action.type) {
-    case ACTION_TYPES.FETCH_BOOK_STARTED:
+    case ACTION_TYPES.FETCH_BOOK_REQUEST:
       return { ...state, isLoading: true, error: null };
-    case ACTION_TYPES.FETCH_BOOK:
-      return { ...state, isLoading: false, books: action.payload };
-    case ACTION_TYPES.FETCH_BOOK_FAILED:
+
+    case ACTION_TYPES.FETCH_BOOK_ERROR:
       return { ...state, isLoading: false, error: action.payload };
-    case ACTION_TYPES.RESET_STATE:
+
+    case ACTION_TYPES.RESET_BOOK_STATE:
       return initialState;
+
+    case ACTION_TYPES.FETCH_BOOK_SUCCESS:
+      return { ...state, isLoading: false, books: action.payload };
+
+    case ACTION_TYPES.CREATE_BOOK_SUCCESS:
+      return { ...state, books: [...state.books, action.payload] };
+
+    case ACTION_TYPES.UPDATE_BOOK_SUCCESS:
+      return {
+        ...state,
+        books: state.books.map((book) =>
+          book.id === action.payload.id ? action.payload : book
+        ),
+      };
+
+    case ACTION_TYPES.DELETE_BOOK_SUCCESS:
+      return {
+        ...state,
+        books: state.books.filter((book) => book.id !== action.payload),
+      };
+
     default:
       return state;
   }

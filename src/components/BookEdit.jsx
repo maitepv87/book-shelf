@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { useBookContext } from "../context/BookContext";
+import { editBookById } from "../context/actions";
 
-export const BookEdit = ({ book, onEdit, setIsEditing }) => {
+export const BookEdit = ({ book, setIsEditing }) => {
+  const { state, dispatch } = useBookContext();
+
   const [title, setTitle] = useState(book.title);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (title.trim()) {
-      onEdit(book.id, title);
+      editBookById(dispatch, book.id, title);
       setIsEditing(false);
     }
   };

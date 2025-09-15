@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { BookEdit } from "./BookEdit";
+import { useBookContext } from "../context/BookContext";
+import { deleteBookById } from "../context/actions";
 
-export const BookCard = ({ book, onEdit, onDelete }) => {
+export const BookCard = ({ book }) => {
+  const { state, dispatch } = useBookContext();
+
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEditClick = () => {
@@ -9,7 +13,7 @@ export const BookCard = ({ book, onEdit, onDelete }) => {
   };
 
   const handleDeleteClick = () => {
-    onDelete(book.id);
+    deleteBookById(dispatch, book.id);
   };
 
   return (
@@ -22,7 +26,7 @@ export const BookCard = ({ book, onEdit, onDelete }) => {
 
       <div className="book-content">
         {isEditing ? (
-          <BookEdit book={book} onEdit={onEdit} setIsEditing={setIsEditing} />
+          <BookEdit book={book} setIsEditing={setIsEditing} />
         ) : (
           <>
             <h3>{book.title}</h3>
