@@ -14,7 +14,12 @@ export const BookCard = ({ book, onEdit, onDelete }) => {
 
   return (
     <div className="book-card">
-      <div className="book-image" />
+      <img
+        src={`https://picsum.photos/seed/${book.id}/80/80`}
+        alt="Book cover"
+        className="book-image"
+      />
+
       <div className="book-content">
         {isEditing ? (
           <BookEdit book={book} onEdit={onEdit} setIsEditing={setIsEditing} />

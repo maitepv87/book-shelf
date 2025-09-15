@@ -5,13 +5,16 @@ export const BookCreate = ({ onCreate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onCreate(title);
-    setTitle("");
+
+    if (title.trim()) {
+      onCreate(title);
+      setTitle("");
+    }
   };
 
   return (
     <div className="book-create">
-      <h3>Add a Book</h3>
+      <h2>Add a Book</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

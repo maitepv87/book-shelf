@@ -11,6 +11,12 @@
   margin-bottom: 2rem;
 }
 
+.book-create h2 {
+  font-size: 1.8rem;
+  color: #213547;
+  margin-bottom: 1rem;
+}
+
 .book-create input {
   flex: 1;
   padding: 0.75rem;
