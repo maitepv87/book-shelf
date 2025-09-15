@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useBookContext } from "../context/BookContext";
-import { editBookById } from "../context/actions";
+import { updateBook } from "../context/actions";
 
 export const BookEdit = ({ book, setIsEditing }) => {
   const { state, dispatch } = useBookContext();
@@ -11,7 +11,7 @@ export const BookEdit = ({ book, setIsEditing }) => {
     event.preventDefault();
 
     if (title.trim()) {
-      editBookById(dispatch, book.id, title);
+      updateBook(dispatch, book.id, title);
       setIsEditing(false);
     }
   };

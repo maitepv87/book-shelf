@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ACTION_TYPES } from "../actionTypes";
 
-export const editBookById = async (dispatch, id, newTitle) => {
+export const updateBook = async (dispatch, id, newTitle) => {
   try {
     const response = await axios.put(`http://localhost:3001/books/${id}`, {
       title: newTitle,

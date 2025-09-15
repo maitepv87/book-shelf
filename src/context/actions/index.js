@@ -1,4 +1,4 @@
 export * from "./createBook";
-export * from "./deleteBookById";
-export * from "./editBookById";
+export * from "./deleteBook";
+export * from "./updateBook";
 export * from "./fetchBooks";

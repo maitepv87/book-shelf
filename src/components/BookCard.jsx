@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BookEdit } from "./BookEdit";
 import { useBookContext } from "../context/BookContext";
-import { deleteBookById } from "../context/actions";
+import { deleteBook } from "../context/actions";
 
 export const BookCard = ({ book }) => {
   const { state, dispatch } = useBookContext();
@@ -13,7 +13,7 @@ export const BookCard = ({ book }) => {
   };
 
   const handleDeleteClick = () => {
-    deleteBookById(dispatch, book.id);
+    deleteBook(dispatch, book.id);
   };
 
   return (

@@ -14,17 +14,17 @@ const reducer = (state, action) => {
     case ACTION_TYPES.FETCH_BOOK_REQUEST:
       return { ...state, isLoading: true, error: null };
 
-    case ACTION_TYPES.FETCH_BOOK_ERROR:
-      return { ...state, isLoading: false, error: action.payload };
-
-    case ACTION_TYPES.RESET_BOOK_STATE:
-      return initialState;
-
     case ACTION_TYPES.FETCH_BOOK_SUCCESS:
       return { ...state, isLoading: false, books: action.payload };
 
+    case ACTION_TYPES.FETCH_BOOK_ERROR:
+      return { ...state, isLoading: false, error: action.payload };
+
     case ACTION_TYPES.CREATE_BOOK_SUCCESS:
       return { ...state, books: [...state.books, action.payload] };
+
+    case ACTION_TYPES.CREATE_BOOK_ERROR:
+      return { ...state, isLoading: false, error: action.payload };
 
     case ACTION_TYPES.UPDATE_BOOK_SUCCESS:
       return {
@@ -34,11 +34,20 @@ const reducer = (state, action) => {
         ),
       };
 
+    case ACTION_TYPES.UPDATE_BOOK_ERROR:
+      return { ...state, isLoading: false, error: action.payload };
+
     case ACTION_TYPES.DELETE_BOOK_SUCCESS:
       return {
         ...state,
         books: state.books.filter((book) => book.id !== action.payload),
       };
+
+    case ACTION_TYPES.DELETE_BOOK_ERROR:
+      return { ...state, isLoading: false, error: action.payload };
+
+    case ACTION_TYPES.RESET_BOOK_STATE:
+      return initialState;
 
     default:
       return state;
