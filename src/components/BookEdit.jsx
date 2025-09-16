@@ -3,13 +3,11 @@ import { useBookContext } from "../context/BookContext";
 import { updateBook } from "../context/actions";
 
 export const BookEdit = ({ book, setIsEditing }) => {
-  const { state, dispatch } = useBookContext();
-
+  const { dispatch } = useBookContext();
   const [title, setTitle] = useState(book.title);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     if (title.trim()) {
       updateBook(dispatch, book.id, title);
       setIsEditing(false);

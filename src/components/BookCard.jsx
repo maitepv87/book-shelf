@@ -1,20 +1,19 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { BookEdit } from "./BookEdit";
 import { useBookContext } from "../context/BookContext";
 import { deleteBook } from "../context/actions";
 
 export const BookCard = ({ book }) => {
-  const { state, dispatch } = useBookContext();
-
+  const { dispatch } = useBookContext();
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleEditClick = () => {
+  const handleEditClick = useCallback(() => {
     setIsEditing(true);
-  };
+  }, []);
 
-  const handleDeleteClick = () => {
+  const handleDeleteClick = useCallback(() => {
     deleteBook(dispatch, book.id);
-  };
+  }, [dispatch, book.id]);
 
   return (
     <div className="book-card">
