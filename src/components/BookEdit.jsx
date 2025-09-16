@@ -18,13 +18,17 @@ export const BookEdit = ({ book, setIsEditing }) => {
 
   return (
     <form onSubmit={handleSubmit} className="book-edit">
-      <label>Title</label>
+      <label htmlFor={`edit-book-title-${book.id}`}>Title</label>
       <input
+        id={`edit-book-title-${book.id}`}
+        aria-label="Book title"
         type="text"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <button type="submit">Save</button>
+      <button type="submit" aria-label={`Save button`} className="btn-save">
+        Save
+      </button>
     </form>
   );
 };

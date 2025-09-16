@@ -31,8 +31,20 @@ export const BookCard = ({ book }) => {
           <>
             <h3>{book.title}</h3>
             <div className="actions">
-              <button onClick={handleEditClick}>Edit</button>
-              <button onClick={handleDeleteClick}>Delete</button>
+              <button
+                className="btn-edit"
+                onClick={handleEditClick}
+                aria-label={`Edit ${book.title}`}
+              >
+                Edit
+              </button>
+              <button
+                className="btn-delete"
+                onClick={handleDeleteClick}
+                aria-label={`Delete ${book.title}`}
+              >
+                Delete
+              </button>
             </div>
           </>
         )}

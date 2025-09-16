@@ -12,10 +12,10 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="app-container">
       <BookCreate />
       <BookList />
-    </>
+    </div>
   );
 }
 

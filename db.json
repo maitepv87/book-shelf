@@ -1,12 +1,24 @@
 {
   "books": [
     {
-      "title": "test 8",
-      "id": "354b"
+      "id": "4645",
+      "title": "React Patterns for Humans"
     },
     {
-      "id": "2ede",
-      "title": "tino"
+      "id": "4eb3",
+      "title": "Clean Code, Clear Mind"
+    },
+    {
+      "id": "24df",
+      "title": "The Modular Frontend"
+    },
+    {
+      "id": "c425",
+      "title": "State Management Made Simple"
+    },
+    {
+      "id": "5675",
+      "title": "The Art of Debugging"
     }
   ]
 }
